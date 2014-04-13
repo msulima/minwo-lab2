@@ -2,21 +2,20 @@
 
 
 
-<div class="fieldcontain ${hasErrors(bean: todoItemInstance, field: 'content', 'error')} ">
+<div class="fieldcontain ${hasErrors(bean: todoItemInstance, field: 'content', 'error')} form-group">
 	<label for="content">
 		<g:message code="todoItem.content.label" default="Content" />
 		
 	</label>
-	<g:textField name="content" value="${todoItemInstance?.content}"/>
+    <input type="text" name="content" value="${todoItemInstance?.content}" class="form-control" placeholder="Wprowadź treść"/>
 
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: todoItemInstance, field: 'done', 'error')} ">
 	<label for="done">
 		<g:message code="todoItem.done.label" default="Done" />
-		
+        <input type="checkbox" name="done" id="done">
 	</label>
-	<g:checkBox name="done" value="${todoItemInstance?.done}" />
 
 </div>
 
@@ -25,7 +24,12 @@
 		<g:message code="todoItem.list.label" default="List" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="list" name="list.id" from="${todoapp.TodoList.list()}" optionKey="id" optionValue="name" required="" value="${todoItemInstance?.list?.id}" class="many-to-one"/>
 
+    <select id="list" name="list.id" required="" class="many-to-one form-control">
+    <g:each in="${todoapp.TodoList.list()}" status="i" var="item">
+    <option value="${item.id}">${item.name}</option>
+	</g:each>
+    </select>
 </div>
+</br>
 
