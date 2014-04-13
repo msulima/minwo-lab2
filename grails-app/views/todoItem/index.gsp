@@ -15,8 +15,10 @@
 			</g:if>
 			<g:if test="${todoListInstanceList?.empty}">
       <div class="alert alert-info">
-          Nie ma jeszcze żadnych zadań.
-          <g:link class="create" action="create">Kliknij tutaj aby je utworzyć.</g:link>
+          Nie ma jeszcze żadnych punktów na tej liście.
+            <g:link resource="TodoList/TodoItem" action="create" method="GET" TodoListId="${params['TodoListId']}">
+                <g:message code="default.new.label" args="[entityName]" />
+            </g:link>
       </div>
 			</g:if>
 			<g:else>
@@ -41,7 +43,11 @@
 			<div class="pagination">
 				<g:paginate total="${todoItemInstanceCount ?: 0}" />
 			</div>
-            <span class="btn btn-default"><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></span>
+        <span class="btn btn-default">
+            <g:link resource="TodoList/TodoItem" action="create" method="GET" TodoListId="${params['TodoListId']}">
+                <g:message code="default.new.label" args="[entityName]" />
+            </g:link>
+        </span>
 			</g:else>
 		</div>
 	</body>

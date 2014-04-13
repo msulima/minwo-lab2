@@ -5,6 +5,7 @@
 	<head>
 		<meta name="layout" content="main">
 		<g:set var="entityName" value="${message(code: 'todoList.label', default: 'TodoList')}" />
+		<g:set var="todoItemName" value="${message(code: 'todoItem.label', default: 'TodoItem')}" />
 		<title><g:message code="default.show.label" args="[entityName]" /></title>
 	</head>
 	<body>
@@ -22,7 +23,6 @@
       <g:if test="${todoListInstance?.items?.empty}">
       <div class="alert alert-info">
           Nie ma jeszcze żadnych punktów na tej liście.
-          <a href="${createLink(uri: '/todoItem/')}">Kliknij tutaj aby je utworzyć.</a>
       </div>
       </g:if>
       <g:else>
@@ -38,6 +38,9 @@
 			
 			<g:form url="[resource:todoListInstance, action:'delete']" method="DELETE">
 				<fieldset class="buttons">
+            <g:link class="btn btn-success" resource="TodoList/TodoItem" action="create" method="GET" TodoListId="${params['id']}">
+                <g:message code="todoList.addItem" />
+            </g:link>
 					<g:link class="edit btn btn-primary" action="edit" resource="${todoListInstance}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
 					<g:actionSubmit class="delete btn btn-danger" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
 				</fieldset>

@@ -32,7 +32,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">TodoApp</a>
+          <span class="navbar-brand" style="cursor: default;">TodoApp</span>
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">

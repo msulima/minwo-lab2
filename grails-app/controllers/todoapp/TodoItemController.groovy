@@ -11,7 +11,6 @@ class TodoItemController {
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def index(Integer max) {
-        params.max = Math.min(max ?: 10, 100)
         respond TodoItem.list(params), model:[todoItemInstanceCount: TodoItem.count()]
     }
 
@@ -56,6 +55,8 @@ class TodoItemController {
             notFound()
             return
         }
+
+        todoItemInstance.list = TodoItem.get(params['TodoListId'])
 
         if (todoItemInstance.hasErrors()) {
             respond todoItemInstance.errors, view:'edit'

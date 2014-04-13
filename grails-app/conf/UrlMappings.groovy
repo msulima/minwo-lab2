@@ -7,6 +7,10 @@ class UrlMappings {
             }
         }
 
+        "/todoList"(resources:'TodoList') {
+            "/items"(resources:"TodoItem")
+        }
+
         "/"(controller:"TodoList")
         "500"(view:'/error')
 	}
