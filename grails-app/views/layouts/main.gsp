@@ -32,14 +32,8 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <span class="navbar-brand" style="cursor: default;">TodoApp</span>
+          <a class="navbar-brand" href="${createLink(uri: '/todoList/')}">TodoApp</a>
         </div>
-        <div class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li><a href="${createLink(uri: '/todoList/')}">Listy zadań</a></li>
-            <li><a href="${createLink(uri: '/todoItem/')}">Zadania</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
       </div>
     </div>
 

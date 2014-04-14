@@ -37,7 +37,7 @@
       <sourceFolder url="file://$MODULE_DIR$/test/integration" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/test/unit" isTestSource="true" />
     </content>
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="1.7" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Grails 2.3.7" level="project" />
     <orderEntry type="module-library">
@@ -51,39 +51,6 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="groovy-2.2.2 (2)" level="application" />
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/../grails-2.3.7/lib/org.springframework/spring-aspects/jars/spring-aspects-3.2.8.RELEASE.jar!/" />
-          <root url="jar://$MODULE_DIR$/../grails-2.3.7/lib/org.springframework/spring-context-support/jars/spring-context-support-3.2.8.RELEASE.jar!/" />
-          <root url="jar://$MODULE_DIR$/../grails-2.3.7/lib/org.springframework/spring-webmvc/jars/spring-webmvc-3.2.8.RELEASE.jar!/" />
-          <root url="jar://$MODULE_DIR$/../grails-2.3.7/lib/org.springframework/spring-aop/jars/spring-aop-3.2.8.RELEASE.jar!/" />
-          <root url="jar://$MODULE_DIR$/../grails-2.3.7/lib/org.springframework/spring-beans/jars/spring-beans-3.2.8.RELEASE.jar!/" />
-          <root url="jar://$MODULE_DIR$/../grails-2.3.7/lib/org.springframework/spring-context/jars/spring-context-3.2.8.RELEASE.jar!/" />
-          <root url="jar://$MODULE_DIR$/../grails-2.3.7/lib/org.springframework/spring-core/jars/spring-core-3.2.8.RELEASE.jar!/" />
-          <root url="jar://$MODULE_DIR$/../grails-2.3.7/lib/org.springframework/spring-expression/jars/spring-expression-3.2.8.RELEASE.jar!/" />
-          <root url="jar://$MODULE_DIR$/../grails-2.3.7/lib/org.springframework/spring-jdbc/jars/spring-jdbc-3.2.8.RELEASE.jar!/" />
-          <root url="jar://$MODULE_DIR$/../grails-2.3.7/lib/org.springframework/spring-jms/jars/spring-jms-3.2.8.RELEASE.jar!/" />
-          <root url="jar://$MODULE_DIR$/../grails-2.3.7/lib/org.springframework/spring-test/jars/spring-test-3.2.8.RELEASE.jar!/" />
-          <root url="jar://$MODULE_DIR$/../grails-2.3.7/lib/org.springframework/spring-tx/jars/spring-tx-3.2.8.RELEASE.jar!/" />
-          <root url="jar://$MODULE_DIR$/../grails-2.3.7/lib/org.springframework/spring-web/jars/spring-web-3.2.8.RELEASE.jar!/" />
-          <root url="jar://$MODULE_DIR$/../grails-2.3.7/lib/org.springframework/springloaded/jars/springloaded-1.1.5.RELEASE.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="jar://$MODULE_DIR$/../grails-2.3.7/lib/org.springframework/spring-aop/jars/spring-aop-3.2.8.RELEASE-sources.jar!/" />
-          <root url="jar://$MODULE_DIR$/../grails-2.3.7/lib/org.springframework/spring-beans/jars/spring-beans-3.2.8.RELEASE-sources.jar!/" />
-          <root url="jar://$MODULE_DIR$/../grails-2.3.7/lib/org.springframework/spring-context/jars/spring-context-3.2.8.RELEASE-sources.jar!/" />
-          <root url="jar://$MODULE_DIR$/../grails-2.3.7/lib/org.springframework/spring-core/jars/spring-core-3.2.8.RELEASE-sources.jar!/" />
-          <root url="jar://$MODULE_DIR$/../grails-2.3.7/lib/org.springframework/spring-expression/jars/spring-expression-3.2.8.RELEASE-sources.jar!/" />
-          <root url="jar://$MODULE_DIR$/../grails-2.3.7/lib/org.springframework/spring-jdbc/jars/spring-jdbc-3.2.8.RELEASE-sources.jar!/" />
-          <root url="jar://$MODULE_DIR$/../grails-2.3.7/lib/org.springframework/spring-jms/jars/spring-jms-3.2.8.RELEASE-sources.jar!/" />
-          <root url="jar://$MODULE_DIR$/../grails-2.3.7/lib/org.springframework/spring-test/jars/spring-test-3.2.8.RELEASE-sources.jar!/" />
-          <root url="jar://$MODULE_DIR$/../grails-2.3.7/lib/org.springframework/spring-tx/jars/spring-tx-3.2.8.RELEASE-sources.jar!/" />
-          <root url="jar://$MODULE_DIR$/../grails-2.3.7/lib/org.springframework/spring-web/jars/spring-web-3.2.8.RELEASE-sources.jar!/" />
-        </SOURCES>
-      </library>
-    </orderEntry>
   </component>
 </module>
 

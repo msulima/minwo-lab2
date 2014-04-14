@@ -6,13 +6,17 @@ import grails.test.mixin.*
 import spock.lang.*
 
 @TestFor(TodoItemController)
-@Mock(TodoItem)
+@Mock([TodoItem, TodoList])
 class TodoItemControllerSpec extends Specification {
 
     def populateValidParams(params) {
         assert params != null
-        // TODO: Populate valid properties like...
-        //params["name"] = 'someValidName'
+        def todoList = new TodoList()
+        todoList.name = 'list name'
+        todoList.save flush:true
+        params["list"] = 1
+        params["content"] = 'someValidName'
+        params["done"] = true
     }
 
     void "Test the index action returns the correct model"() {
@@ -56,6 +60,22 @@ class TodoItemControllerSpec extends Specification {
             response.redirectedUrl == '/todoItem/show/1'
             controller.flash.message != null
             TodoItem.count() == 1
+    }
+
+    void "Should toggle done value"() {
+
+        when:"The toggle action is executed with a valid instance"
+            response.reset()
+            populateValidParams(params)
+            def todoItem = new TodoItem(params).save(flush: true)
+
+            controller.toggleDone(todoItem.id)
+
+        then:"A redirect is issued to the show action"
+            response.redirectedUrl == '/todoItem/show/1'
+            controller.flash.message != null
+            TodoItem.count() == 1
+            TodoItem.get(todoItem.id).done == false
     }
 
     void "Test that the show action returns the correct model"() {

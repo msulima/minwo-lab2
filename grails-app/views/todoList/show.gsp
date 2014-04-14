@@ -22,7 +22,7 @@
 
       <g:if test="${todoListInstance?.items?.empty}">
       <div class="alert alert-info">
-          Nie ma jeszcze żadnych punktów na tej liście.
+          Nie ma jeszcze żadnych zadań na tej liście.
       </div>
       </g:if>
       <g:else>
