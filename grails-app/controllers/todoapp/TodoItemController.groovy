@@ -8,7 +8,7 @@ import grails.transaction.Transactional
 @Transactional(readOnly = true)
 class TodoItemController {
 
-    static allowedMethods = [toggleDone: "POST", save: "POST", update: "PUT", delete: "DELETE"]
+    static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def index(Integer max) {
         respond TodoItem.list(params), model:[todoItemInstanceCount: TodoItem.count()]
@@ -46,9 +46,7 @@ class TodoItemController {
     }
 
     @Transactional
-    def toggleDone(Long todoItemId) {
-        def todoItemInstance = TodoItem.get(todoItemId)
-
+    def toggleDone(TodoItem todoItemInstance) {
         if (todoItemInstance == null) {
             notFound()
             return
@@ -58,7 +56,7 @@ class TodoItemController {
         todoItemInstance.save flush:true
 
         flash.message = message(code: 'todoItem.toggleDone.toggled')
-        redirect todoItemInstance
+        redirect todoItemInstance.list
     }
 
     def edit(TodoItem todoItemInstance) {

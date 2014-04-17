@@ -29,18 +29,30 @@
       <ol>
       <g:each in="${todoListInstance.items}" status="i" var="item">
       <li>
+        <g:link resource="TodoList/TodoItem" action="show" id="${item.id}" TodoListId="${item.list.id}">
         <g:fieldValue bean="${item}" field="content"/>
+        </g:link>
         <i class="glyphicon glyphicon-${item.done ? 'ok' : 'remove'}"></i>
+
+        <g:link class="btn btn-xs btn-${item.done ? 'danger' : 'success'}" resource="TodoItem" action="toggleDone" method="GET" id="${item.id}">
+        <g:if test="${item.done}">
+            <g:message code="todoItem.toggleDone.off.label" />
+        </g:if>
+        <g:else>
+            <g:message code="todoItem.toggleDone.on.label" />
+        </g:else>
+        </g:link>
         </li>
       </g:each>
       </ol>
       </g:else>
+                    <g:link class="btn btn-info" resource="TodoList/TodoItem" action="create" method="GET" TodoListId="${params['id']}">
+                        <g:message code="todoList.addItem" />
+                    </g:link>
+      <hr/>
 			
 			<g:form url="[resource:todoListInstance, action:'delete']" method="DELETE">
 				<fieldset class="buttons">
-            <g:link class="btn btn-success" resource="TodoList/TodoItem" action="create" method="GET" TodoListId="${params['id']}">
-                <g:message code="todoList.addItem" />
-            </g:link>
 					<g:link class="edit btn btn-primary" action="edit" resource="${todoListInstance}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
 					<g:actionSubmit class="delete btn btn-danger" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
 				</fieldset>

@@ -69,10 +69,10 @@ class TodoItemControllerSpec extends Specification {
             populateValidParams(params)
             def todoItem = new TodoItem(params).save(flush: true)
 
-            controller.toggleDone(todoItem.id)
+            controller.toggleDone(todoItem)
 
         then:"A redirect is issued to the show action"
-            response.redirectedUrl == '/todoItem/show/1'
+            response.redirectedUrl == '/todoList/show/1'
             controller.flash.message != null
             TodoItem.count() == 1
             TodoItem.get(todoItem.id).done == false

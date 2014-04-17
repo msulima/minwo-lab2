@@ -23,7 +23,9 @@
       </p>
       <p>
           <span id="name-label" class="property-label"><g:message code="todoItem.list.label" default="Name" /></span>
+          <g:link resource="TodoList" action="show" id="${todoItemInstance.list.id}">
           <strong><g:fieldValue bean="${todoItemInstance.list}" field="name"/></strong>
+          </g:link>
       </p>
 			<g:form url="[resource:todoItemInstance, action:'delete']" method="DELETE">
 				<fieldset class="buttons">
