@@ -39,7 +39,7 @@
             <g:each in="${todoListInstance.items}" status="i" var="item">
                 <tr>
                     <td>${i+1}</td>
-                    <td><g:link action="show" id="${item.id}">${fieldValue(bean: item, field: "content")}</g:link></td>
+                    <td><g:link resource="TodoList/TodoItem" action="show" TodoListId="${item.list.id}" id="${item.id}">${fieldValue(bean: item, field: "content")}</g:link></td>
                     <td>
                         <i class="glyphicon glyphicon-${item.done ? 'ok' : 'remove'}"></i>
                     </td>
