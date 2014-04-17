@@ -17,11 +17,11 @@ hibernate {
 environments {
     development {
         dataSource {
-            dbCreate = "update"
-
             if (System.env.DATABASE_URL == null) {
+                dbCreate = "create-drop"
                 url = "jdbc:h2:mem:devDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE"
             } else {
+                dbCreate = "validate"
                 driverClassName = "org.postgresql.Driver"
                 dialect = org.hibernate.dialect.PostgreSQLDialect
 
