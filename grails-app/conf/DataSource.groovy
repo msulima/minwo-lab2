@@ -17,20 +17,8 @@ hibernate {
 environments {
     development {
         dataSource {
-            if (System.env.DATABASE_URL == null) {
-                dbCreate = "create-drop"
-                url = "jdbc:h2:mem:devDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE"
-            } else {
-                dbCreate = "validate"
-                driverClassName = "org.postgresql.Driver"
-                dialect = org.hibernate.dialect.PostgreSQLDialect
-
-                uri = new URI(System.env.DATABASE_URL)
-
-                url = "jdbc:postgresql://" + uri.host + uri.path
-                username = uri.userInfo.split(":")[0]
-                password = uri.userInfo.split(":")[1]
-            }
+            dbCreate = "update"
+            url = "jdbc:h2:mem:devDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE"
         }
     }
     test {
