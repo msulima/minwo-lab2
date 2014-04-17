@@ -26,25 +26,37 @@
       </div>
       </g:if>
       <g:else>
-      <ol>
-      <g:each in="${todoListInstance.items}" status="i" var="item">
-      <li>
-        <g:link resource="TodoList/TodoItem" action="show" id="${item.id}" TodoListId="${item.list.id}">
-        <g:fieldValue bean="${item}" field="content"/>
-        </g:link>
-        <i class="glyphicon glyphicon-${item.done ? 'ok' : 'remove'}"></i>
-
-        <g:link class="btn btn-xs btn-${item.done ? 'danger' : 'success'}" resource="TodoItem" action="toggleDone" method="GET" id="${item.id}">
-        <g:if test="${item.done}">
-            <g:message code="todoItem.toggleDone.off.label" />
-        </g:if>
-        <g:else>
-            <g:message code="todoItem.toggleDone.on.label" />
-        </g:else>
-        </g:link>
-        </li>
-      </g:each>
-      </ol>
+        <table class="table table-striped">
+        <thead>
+                <tr>
+                    <th>#</th>
+                    <th><g:message code="todoItem.content.label" default="List" /></th>
+                    <th><g:message code="todoItem.done.label" default="List" /></th>
+                    <th><g:message code="todoItem.toggleDone.label" default="List" /></th>
+                </tr>
+            </thead>
+            <tbody>
+            <g:each in="${todoListInstance.items}" status="i" var="item">
+                <tr>
+                    <td>${i+1}</td>
+                    <td><g:link action="show" id="${item.id}">${fieldValue(bean: item, field: "content")}</g:link></td>
+                    <td>
+                        <i class="glyphicon glyphicon-${item.done ? 'ok' : 'remove'}"></i>
+                    </td>
+                    <td>
+                        <g:link class="btn btn-xs btn-${item.done ? 'danger' : 'success'}" resource="TodoItem" action="toggleDone" method="GET" id="${item.id}">
+                        <g:if test="${item.done}">
+                            <g:message code="todoItem.toggleDone.off.label" />
+                        </g:if>
+                        <g:else>
+                            <g:message code="todoItem.toggleDone.on.label" />
+                        </g:else>
+                        </g:link>
+                    </td>
+                </tr>
+            </g:each>
+            </tbody>
+        </table>
       </g:else>
                     <g:link class="btn btn-info" resource="TodoList/TodoItem" action="create" method="GET" TodoListId="${params['id']}">
                         <g:message code="todoList.addItem" />
